@@ -1,193 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Job Listings</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <!-- Item Start -->
-  Photosnap
-  New!
-  Featured
-  Senior Frontend Developer
-  1d ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Senior
-  <!-- Languages -->
-  HTML
-  CSS
-  JavaScript
-  <!-- Item End -->
+    <link rel="stylesheet" href="./css/main.css">
 
-  <!-- Item Start -->
-  Manage
-  New!
-  Featured
-  Fullstack Developer
-  1d ago
-  Part Time
-  Remote
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  Python
-  <!-- Tools -->
-  React
-  <!-- Item End -->
+    <title>Frontend Mentor | Job Listings</title>
 
-  <!-- Item Start -->
-  Account
-  New!
-  Junior Frontend Developer
-  2d ago
-  Part Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
 
-  <!-- Item Start -->
-  MyHome
-  Junior Frontend Developer
-  5d ago
-  Contract
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  CSS
-  JavaScript
-  <!-- Item End -->
+ 
+  </head>
+  <body>
+    <div class="container">
+      <!-- PHOTOSNAP -->
+      <div class="photosnap">
+        <!-- Item Start -->
 
-  <!-- Item Start -->
-  Loop Studios
-  Software Engineer
-  1w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Ruby
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
+        <div class="photosnap__profile">
+          <!--Profile-->
+          <div class="photosnap-dp profile__dp"></div>
+          <p class="photosnap__name">Photosnap</p>
+          <div class="profile__category">
+            <p class="category__new category__new--round">New!</p>
+            <p class="category__featured category__featured--round">Featured</p>
+          </div>
+          <p class="profile__title">Senior Frontend Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>1d ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>USA only</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Item Start -->
-  FaceIt
-  Junior Backend Developer
-  2w ago
-  Full Time
-  UK only
-  <!-- Role -->
-  Backend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  Ruby
-  <!-- Tools -->
-  RoR
-  <!-- Item End -->
+        <div class="photosnap__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Frontend</p>
+          <!-- Level -->
+          <p class="tablet__level">Senior</p>
+          <!-- Languages -->
+          <p class="tablet__language">HTML</p>
+          <p class="tablet__language">CSS</p>
+          <p class="tablet__language">JavaScript</p>
+        </div>
 
-  <!-- Item Start -->
-  Shortly
-  Junior Developer
-  2w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  HTML
-  JavaScript
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
+        <!-- Item End -->
+      </div>
 
-  <!-- Item Start -->
-  Insure
-  Junior Frontend Developer
-  2w ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  Vue
-  Sass
-  <!-- Item End -->
+      <!-- MANAGE -->
+      <div class="manage">
+        <!-- Item Start -->
 
-  <!-- Item Start -->
-  Eyecam Co.
-  Full Stack Engineer
-  3w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Python
-  <!-- Tools -->
-  Django
-  <!-- Item End -->
+        <div class="manage__profile">
+          <!--Profile-->
+          <div class="manage-dp profile__dp"></div>
+          <p class="profile__name">Manage</p>
+          <div class="profile__category">
+            <p class="profile__new profile__new--round">New!</p>
+            <p class="profile__featured profile__new--round">Featured</p>
+          </div>
+          <p class="profile__title">Fullstack Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>1d ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Part Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>Remote</p>
+            </div>
+          </div>
+        </div>
 
-  <!-- Item Start -->
-  The Air Filter Company
-  Front-end Dev
-  1mo ago
-  Part Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <div class="manage__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Fullstack</p>
+          <!-- Level -->
+          <p class="tablet__level">Midweight</p>
+          <!-- Languages -->
+          <p class="tablet__lanuage">Phyton</p>
+          <!-- Tools -->
+          <p class="tablet__lanuage">React</p>
+          <!-- Item End -->
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- ACCOUNT -->
+
+      <div class="account">
+        <!-- Item Start -->
+
+        <div class="account__profile">
+          <!--Profile-->
+          <div class="account-dp profile__dp"></div>
+          <p class="profile__name">Account</p>
+          <div class="profile__category">
+            <p class="category__new category__new--round">New!</p>
+            <p class="category__featured">Featured</p>
+          </div>
+          <p class="profile__title">Junior Frontend Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>2d ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>USA only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="account__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Frontend</p>
+          <!-- Level -->
+          <p class="tablet__level">Junior</p>
+          <!-- Languages -->
+          <p class="tablet__language">JavaScript</p>
+          <!-- Tools -->
+          <p class="tablet__tools">React</p>
+          <p class="tablet__tools">Sass</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- MYHOME -->
+
+      <div class="myhome">
+        <!-- Item Start -->
+
+        <div class="myhome__profile">
+          <!--Profile-->
+          <div class="myhome-dp profile__dp"></div>
+          <p class="profile__name">MyHome</p>
+          <div class="profile__category">
+            <p class="category__new"></p>>New!</p>
+            <p class="category__featured">Featured</p>
+          </div>
+          <p class="profile__title">Junior Frontend Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+             <p>5d ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Contract</p>
+            </div>
+            <div class="time-loc__location">
+              <p>USA only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="myhome__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Frontend</p>
+          <!-- Level -->
+          <p class="tablet__level">Junior</p>
+          <!-- Languages -->
+          <p class="tablet__language">CSS</p>
+          <p class="tablet__language">JavaScript</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- LOOP -->
+
+      <div class="loopstudios">
+        <!-- Item Start -->
+
+        <div class="loopstudios__profile">
+          <!--Profile-->
+          <div class="loopstudios-dp profile__dp"></div>
+          <p class="profile__name">Loop Studios</p>
+          <div class="profile__category">
+            <p class="category__new">New!</p>
+            <p class="category__featured">Featured</p>
+          </div>
+          <p class="profile__title">Software Engineer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>1w ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>Worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="loopstudios__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Fullstack</p>
+          <!-- Level -->
+          <p class="tablet__level">Midweight</p>
+          <!-- Languages -->
+          <p class="tablet__language">JavaScript</p>
+          <p class="tablet__language">Rubby</p>
+          <!-- Tools -->
+          <p class="tablet__tools">Sass</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- FACEIT -->
+      <div class="faceit">
+        <!-- Item Start -->
+
+        <div class="faceit__profile">
+          <!--Profile-->
+          <div class="faceit-dp profile__faceit"></div>
+          <p class="profile__name">FaceIt</p>
+          <div class="profile__category">
+            <p class="category__new">New!</p>
+            <p class="category__featured">Featured</p>
+          </div>
+          <p class="profile__title">Junior Backend Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>2w ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>UK only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faceit__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Backend</p>
+          <!-- Level -->
+          <p class="tablet__level">Junior</p>
+          <!-- Languages -->
+          <p class="tablet__language">Rubby</p>
+          <!-- Tools -->
+          <p class="tablet__language">RoR</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- SHORTLY -->
+      <div class="shortly">
+        <!-- Item Start -->
+
+        <div class="shortly__profile">
+          <!--Profile-->
+          <div class="shortly-dp profile__dp"></div>
+          <p>Shortly</p>
+          <div class="profile__category">
+            <p class="category__new">New!</p>
+            <p class="__featured">Featured</p>
+          </div>
+          <p class="profile__title">Junior Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>2w ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>Worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="shortly__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Frontend</p>
+          <!-- Level -->
+          <p class="tablet__level">Junior</p>
+          <!-- Languages -->
+          <p class="tablet__language">HTML</p>
+          <p class="tablet__language">JavaScript</p>
+          <!-- Tools -->
+          <p class="tablet__tools">Sass</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- INSURE -->
+      <div class="insure">
+        <!-- Item Start -->
+
+        <div class="insure__profile">
+          <!--Profile-->
+          <div class="profile__dp insure-dp"></div>
+          <p class="profile__name">Insure</p>
+          <div class="profile__category">
+            <p class="category__new">New!</p>
+            <p class="category__featured">Featured</p>
+          </div>
+          <p class="profile__title">Junior Frontend Developer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>2w ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>USA only</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="insure__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Frontend</p>
+          <!-- Level -->
+          <p class="tablet__level">Junior</p>
+          <!-- Languages -->
+          <p class="tablet__language">JavaScript</p>
+          <!-- Tools -->
+          <p class="tablet__tools">Vue</p>
+          <p class="tablet__tools">Sass</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- EYECAM -->
+
+      <div class="eyecam">
+        <!-- Item Start -->
+
+        <div class="eyecam__profile">
+          <!--Profile-->
+          <div class="profile__dp eyecam-dp"></div>
+          <p class="profile__dp">Eyecam Co.</p>
+          <div class="profile__category">
+            <p class="category__new">New!</p>
+            <p class="category__featured">Featured</p>
+          </div>
+          <p class="profile__title">Full Stack Engineer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>3w ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Full Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>Worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="eyecam__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Fullstack</p>
+          <!-- Level -->
+          <p class="tablet__level">Midweight</p>
+          <!-- Languages -->
+          <p class="tablet__language">JavaScript</p>
+          <p class="tablet__language">Python</p>
+          <!-- Tools -->
+          <p class="tablet__tools">Django</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+
+      <!-- THE AIR FILTER -->
+      <div class="theair">
+        <!-- Item Start -->
+
+        <div class="theair__profile">
+          <!--Profile-->
+          <div class="profile__dp theair-dp"></div>
+          <p class="profile__name">The Air Filter Company</p>
+          <div class="profile__category">
+            <p class="profile__new">New!</p>
+            <p class="profile__featured">Featured</p>
+          </div>
+          <p class="profile__title">Full Stack Engineer</p>
+          <div class="profile__time-loc">
+            <div class="time-loc__posted">
+              <p>1mo ago</p>
+            </div>
+            <div class="time-loc__type">
+              <p>Part Time</p>
+            </div>
+            <div class="time-loc__location">
+              <p>Worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="theair__tablet">
+          <!-- Role -->
+          <p class="tablet__role">Frontend</p>
+          <!-- Level -->
+          <p class="tablet__level">Junior</p>
+          <!-- Languages -->
+          <p class="tablet__language">JavaScript</p>
+          <!-- Tools -->
+          <p class="tablet__tools">React</p>
+          <p class="tablet__tools">Sass</p>
+        </div>
+
+        <!-- Item End -->
+      </div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
 </html>

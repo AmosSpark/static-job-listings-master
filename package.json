@@ -4,7 +4,7 @@
   "description": "sass tutorial",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o src/css/ --recursive"
+    "sass": "node-sass -w scss/ -o src/css/"
   },
   "author": "amosspark",
   "license": "ISC",
