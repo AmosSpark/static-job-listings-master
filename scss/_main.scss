@@ -1,2 +1,5 @@
-$pri-color: #444;
-$sec-color: #545;
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "base/base";
+@import "base/typography";
