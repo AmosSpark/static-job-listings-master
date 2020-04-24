@@ -40,7 +40,13 @@ html {
   font-size: var(--root-font);
 }
 
-/* MOBILE /TABLET FONT MEDIA QUERIES */
+/* MOBILE / TABLET /DESTKTOP FONT MEDIA QUERIES */
+
+@media only screen and (max-width: var(--desktop-size)) {
+  html {
+    font-size: var(--desktop-font);
+  }
+}
 
 @media only screen and (max-width: var(--tablet-size)) {
   /* Tablet */
@@ -60,4 +66,9 @@ html {
 
 body {
   font-family: "Spartan", sans-serif;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (max-width: var(--desktop-size)) {
 }
