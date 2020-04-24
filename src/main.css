@@ -66,6 +66,48 @@ body {
   background-color: var(--neu-bg);
 }
 
+/* Profile Images */
+
+.photosnap:nth-child(1) {
+  background-image: url("./images/photosnap.svg");
+}
+
+.manage:nth-child(2) {
+  background-image: url("./images/manage.svg");
+}
+
+.account:nth-child(3) {
+  background-image: url("./images/account.svg");
+}
+
+.myhome:nth-child(4) {
+  background-image: url("./images/myhome.svg");
+}
+
+.loopstudios:nth-child(5) {
+  background-image: url("./images/loop-studios.svg");
+}
+
+.faceit:nth-child(6) {
+  background-image: url("./images/faceit.svg");
+}
+
+.shortly:nth-child(7) {
+  background-image: url("./images/shortly.svg");
+}
+
+.insure:nth-child(8) {
+  background-image: url("./images/insure.svg");
+}
+
+.eyecam:nth-child(9) {
+  background-image: url("./images/eyecam-co.svg");
+}
+
+.theair:nth-child(10) {
+  background-image: url("./images/the-air-filter-company.svg");
+}
+
 /* MEDIA QUERY */
 
 @media only screen and (max-width: 1440px) {
@@ -89,27 +131,39 @@ body {
   .theair {
     display: flex;
     background-color: var(--cont-bg);
+    padding: 2rem;
   }
 
   .profile {
     display: flex;
-    margin-left: 3rem;
-    padding: 2rem;
   }
 
-  .profile__dp {
-    height: 5rem;
-    width: 5rem;
-    background-color: red;
-    border-radius: 25rem;
+  .photosnap:nth-child(1),
+  .manage:nth-child(2),
+  .account:nth-child(3),
+  .myhome:nth-child(4),
+  .loopstudios:nth-child(5),
+  .faceit:nth-child(6),
+  .shortly:nth-child(7),
+  .insure:nth-child(8),
+  .eyecam:nth-child(9),
+  .theair:nth-child(10) {
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 2.5vw;
   }
 
   .profile__time-loc {
     display: flex;
   }
 
+  .profile__time-loc > * {
+    padding-right: 0.5rem;
+  }
+
   .grp {
-    margin-left: 1rem;
+    margin-left: 10rem;
+    line-height: 2.2;
   }
 
   .tablet {
