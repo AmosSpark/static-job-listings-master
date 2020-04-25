@@ -15,8 +15,8 @@
   --pri-col: hsl(180, 29%, 50%);
   --neu-bg: hsl(180, 52%, 96%);
   --neu-fil: hsl(180, 31%, 95%);
-  --neu-dak: hsl(180, 8%, 52%);
-  --neu-dak: hsl(180, 14%, 20%);
+  --neu-dakG: hsl(180, 8%, 52%);
+  --neu-vDakG: hsl(180, 14%, 20%);
 }
 
 /* BASE */
@@ -66,15 +66,147 @@ body {
   background-color: var(--neu-bg);
 }
 
+.photosnap,
+.manage,
+.account,
+.myhome,
+.loopstudios,
+.faceit,
+.shortly,
+.insure,
+.eyecam,
+.theair {
+  background-color: var(--cont-bg);
+  box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0),
+    0 8px 25px 0 rgba(163, 162, 162, 0.1);
+  border-radius: 0.5rem;
+}
+
+.photosnap,
+.manage {
+  border-left: 0.5rem solid var(--pri-col);
+}
+
+/* TYPOGRAPHY */
+
+/* profile styles */
+
+.profile__name,
+.profile__time-loc {
+  color: var(--pri-col);
+}
+
+.profile__time-loc > * {
+  margin-right: 0.5rem;
+  font-size: 1.28rem;
+  color: var(--neu-dakG);
+}
+
+.profile__time-loc > span {
+  line-height: 1.5;
+  font-weight: var(--font-stronger);
+  font-size: 1.5rem;
+}
+
+.profile__name {
+  font-size: 1.2rem;
+  font-weight: var(--font-stronger);
+}
+
+.profile__title {
+  font-weight: var(--font-stronger);
+}
+
+.category__new {
+  background-color: var(--pri-col);
+  margin: 0 0.3rem 0 1rem;
+}
+
+.category__featured {
+  background-color: var(--neu-vDakG);
+}
+
+.category__new--round,
+.category__featured--round {
+  padding: 0.3rem 0.6rem;
+  border-radius: 5rem;
+  font-weight: var(--font-stronger);
+  color: var(--cont-bg);
+  text-transform: uppercase;
+}
+
+/* tablet styles */
+
+.tablet > * {
+  background-color: var(--neu-fil);
+  padding: 0.5rem;
+  font-weight: var(--font-stronger);
+  color: var(--pri-col);
+}
+
+/* footer */
+
+.attribution {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  text-decoration: none;
+}
+
+/* Profile Images */
+
+.photosnap:nth-child(1) {
+  background-image: url("./images/photosnap.svg");
+}
+
+.manage:nth-child(2) {
+  background-image: url("./images/manage.svg");
+}
+
+.account:nth-child(3) {
+  background-image: url("./images/account.svg");
+}
+
+.myhome:nth-child(4) {
+  background-image: url("./images/myhome.svg");
+}
+
+.loopstudios:nth-child(5) {
+  background-image: url("./images/loop-studios.svg");
+}
+
+.faceit:nth-child(6) {
+  background-image: url("./images/faceit.svg");
+}
+
+.shortly:nth-child(7) {
+  background-image: url("./images/shortly.svg");
+}
+
+.insure:nth-child(8) {
+  background-image: url("./images/insure.svg");
+}
+
+.eyecam:nth-child(9) {
+  background-image: url("./images/eyecam-co.svg");
+}
+
+.theair:nth-child(10) {
+  background-image: url("./images/the-air-filter-company.svg");
+}
+
 /* MEDIA QUERY */
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (min-width: 1200px) {
   .container {
-    margin: 5rem 10rem;
+    margin: 5rem 10rem 0 10rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: auto;
-    row-gap: 1rem;
+    row-gap: 2rem;
   }
 
   .photosnap,
@@ -88,28 +220,39 @@ body {
   .eyecam,
   .theair {
     display: flex;
-    background-color: var(--cont-bg);
+    padding: 2rem;
   }
 
   .profile {
     display: flex;
-    margin-left: 3rem;
-    padding: 2rem;
   }
 
-  .profile__dp {
-    height: 5rem;
-    width: 5rem;
-    background-color: red;
-    border-radius: 25rem;
+  .photosnap:nth-child(1),
+  .manage:nth-child(2),
+  .account:nth-child(3),
+  .myhome:nth-child(4),
+  .loopstudios:nth-child(5),
+  .faceit:nth-child(6),
+  .shortly:nth-child(7),
+  .insure:nth-child(8),
+  .eyecam:nth-child(9),
+  .theair:nth-child(10) {
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 2.5vw;
   }
 
   .profile__time-loc {
     display: flex;
   }
 
+  .profile__time-loc > * {
+    padding-right: 0.5rem;
+  }
+
   .grp {
-    margin-left: 1rem;
+    margin-left: 10rem;
+    line-height: 2.2;
   }
 
   .tablet {
@@ -121,5 +264,29 @@ body {
 
   .tablet > * {
     margin-right: 1rem;
+  }
+
+  /* TYPOGRAPHY */
+
+  /* profile styles */
+
+  .profile__title {
+    font-size: 1.5rem;
+  }
+
+  .category__new {
+    margin: 0 0.3rem 0 1rem;
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .container {
+    margin: 5rem 15rem 0 15rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    margin: 5rem 20rem 0 20rem;
   }
 }
