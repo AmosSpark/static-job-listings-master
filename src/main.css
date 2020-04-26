@@ -66,6 +66,16 @@ body {
   background-color: var(--neu-bg);
 }
 
+/* LAYOUT */
+
+.container {
+  margin: 5rem 3rem 0 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: auto;
+  row-gap: 5rem;
+}
+
 .photosnap,
 .manage,
 .account,
@@ -76,6 +86,9 @@ body {
 .insure,
 .eyecam,
 .theair {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   background-color: var(--cont-bg);
   box-shadow: 0 6px 4px 0 rgba(0, 0, 0, 0),
     0 8px 25px 0 rgba(163, 162, 162, 0.1);
@@ -87,34 +100,64 @@ body {
   border-left: 0.5rem solid var(--pri-col);
 }
 
+/* PROFILE DISPLAY */
+
+.dp {
+  position: absolute;
+  top: -3vh;
+  left: 5vw;
+}
+
+.dp > figure > img {
+  width: 5rem;
+}
+
 /* TYPOGRAPHY */
 
 /* profile styles */
+
+.profile {
+  padding: 4rem 2rem 0 2rem;
+}
 
 .profile__name,
 .profile__time-loc {
   color: var(--pri-col);
 }
 
+.profile__time-loc {
+  display: flex;
+}
+
 .profile__time-loc > * {
+  margin-bottom: 1rem;
   margin-right: 0.5rem;
-  font-size: 1.28rem;
+  font-size: 2.25rem;
   color: var(--neu-dakG);
 }
 
 .profile__time-loc > span {
-  line-height: 1.5;
+  line-height: 2.5;
   font-weight: var(--font-stronger);
   font-size: 1.5rem;
 }
 
+.profile__time-loc {
+  border-bottom: 1px solid var(--neu-dakG);
+}
+
 .profile__name {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: var(--font-stronger);
 }
 
 .profile__title {
   font-weight: var(--font-stronger);
+  font-size: 2.3rem;
+}
+
+.grp {
+  line-height: 2.2;
 }
 
 .category__new {
@@ -137,11 +180,60 @@ body {
 
 /* tablet styles */
 
+.tablet {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0rem 3rem 2rem;
+}
+
 .tablet > * {
+  margin: 2rem 2rem 0 0;
   background-color: var(--neu-fil);
-  padding: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
   font-weight: var(--font-stronger);
+  font-size: 2rem;
   color: var(--pri-col);
+}
+
+.account > div:nth-child(3) > p:nth-child(4) {
+  order: 3;
+}
+
+.account > div:nth-child(3) > p:nth-child(3) {
+  order: 5;
+}
+
+.account > div:nth-child(3) > p:nth-child(5) {
+  order: 4;
+}
+
+.loopstudios > div:nth-child(3) > p:nth-child(4) {
+  order: 5;
+}
+
+.shortly > div:nth-child(3) > p:nth-child(4) {
+  order: 5;
+}
+
+.insure > div:nth-child(3) > p:nth-child(4) {
+  order: 3;
+}
+
+.insure > div:nth-child(3) > p:nth-child(3) {
+  order: 4;
+}
+
+.insure > div:nth-child(3) > p:nth-child(5) {
+  order: 5;
+}
+
+.eyecam > div:nth-child(3) > p:nth-child(5) {
+  order: 4;
+}
+
+.eyecam > div:nth-child(3) > p:nth-child(4) {
+  order: 5;
 }
 
 /* footer */
@@ -149,144 +241,8 @@ body {
 .attribution {
   font-size: 1.5rem;
   text-align: center;
-  margin-top: 1rem;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
   text-decoration: none;
-}
-
-/* Profile Images */
-
-.photosnap:nth-child(1) {
-  background-image: url("./images/photosnap.svg");
-}
-
-.manage:nth-child(2) {
-  background-image: url("./images/manage.svg");
-}
-
-.account:nth-child(3) {
-  background-image: url("./images/account.svg");
-}
-
-.myhome:nth-child(4) {
-  background-image: url("./images/myhome.svg");
-}
-
-.loopstudios:nth-child(5) {
-  background-image: url("./images/loop-studios.svg");
-}
-
-.faceit:nth-child(6) {
-  background-image: url("./images/faceit.svg");
-}
-
-.shortly:nth-child(7) {
-  background-image: url("./images/shortly.svg");
-}
-
-.insure:nth-child(8) {
-  background-image: url("./images/insure.svg");
-}
-
-.eyecam:nth-child(9) {
-  background-image: url("./images/eyecam-co.svg");
-}
-
-.theair:nth-child(10) {
-  background-image: url("./images/the-air-filter-company.svg");
-}
-
-/* MEDIA QUERY */
-
-@media only screen and (min-width: 1200px) {
-  .container {
-    margin: 5rem 10rem 0 10rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: auto;
-    row-gap: 2rem;
-  }
-
-  .photosnap,
-  .manage,
-  .account,
-  .myhome,
-  .loopstudios,
-  .faceit,
-  .shortly,
-  .insure,
-  .eyecam,
-  .theair {
-    display: flex;
-    padding: 2rem;
-  }
-
-  .profile {
-    display: flex;
-  }
-
-  .photosnap:nth-child(1),
-  .manage:nth-child(2),
-  .account:nth-child(3),
-  .myhome:nth-child(4),
-  .loopstudios:nth-child(5),
-  .faceit:nth-child(6),
-  .shortly:nth-child(7),
-  .insure:nth-child(8),
-  .eyecam:nth-child(9),
-  .theair:nth-child(10) {
-    background-repeat: no-repeat;
-    background-position-y: center;
-    background-position-x: 2.5vw;
-  }
-
-  .profile__time-loc {
-    display: flex;
-  }
-
-  .profile__time-loc > * {
-    padding-right: 0.5rem;
-  }
-
-  .grp {
-    margin-left: 10rem;
-    line-height: 2.2;
-  }
-
-  .tablet {
-    margin-left: auto;
-    margin-right: 1.5rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .tablet > * {
-    margin-right: 1rem;
-  }
-
-  /* TYPOGRAPHY */
-
-  /* profile styles */
-
-  .profile__title {
-    font-size: 1.5rem;
-  }
-
-  .category__new {
-    margin: 0 0.3rem 0 1rem;
-  }
-}
-
-@media only screen and (min-width: 1366px) {
-  .container {
-    margin: 5rem 15rem 0 15rem;
-  }
-}
-
-@media only screen and (min-width: 1440px) {
-  .container {
-    margin: 5rem 20rem 0 20rem;
-  }
 }
