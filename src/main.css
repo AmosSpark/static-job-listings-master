@@ -236,6 +236,14 @@ body {
   order: 5;
 }
 
+.theair > div:nth-child(3) > p:nth-child(3) {
+  order: 5;
+}
+
+.theair > div:nth-child(3) > p:nth-child(5) {
+  order: 4;
+}
+
 /* footer */
 
 .attribution {
@@ -245,4 +253,105 @@ body {
 .attribution a {
   color: hsl(228, 45%, 44%);
   text-decoration: none;
+}
+
+/* MEDIA QUERY */
+
+@media only screen and (min-width: 1200px) {
+  /* LAYOUT */
+  .container {
+    margin: 5rem 5rem 0 5rem;
+    row-gap: 2rem;
+  }
+
+  .photosnap,
+  .manage,
+  .account,
+  .myhome,
+  .loopstudios,
+  .faceit,
+  .shortly,
+  .insure,
+  .eyecam,
+  .theair {
+    padding: 2.5rem 2.5rem 2.5rem 3rem;
+    flex-direction: row;
+  }
+
+  /* PROFILE DISPLAY */
+
+  .dp {
+    top: initial;
+    left: 2vw;
+    margin-left: 1rem;
+  }
+
+  .dp > figure > img {
+    width: initial;
+  }
+
+  /* TYPOGRAPHY */
+
+  /* profile styles */
+
+  .profile {
+    display: flex;
+    padding: 0;
+  }
+
+  .profile__title {
+    font-size: 1.7rem;
+  }
+
+  .category__new {
+    margin: 0 0.3rem 0 1rem;
+  }
+
+  .profile__name {
+    font-size: 1.2rem;
+  }
+
+  .profile__time-loc > * {
+    margin-bottom: 0;
+    padding-right: 1.2rem;
+    font-size: 1.3rem;
+  }
+
+  .profile__time-loc > span {
+    line-height: 1;
+  }
+
+  .profile__time-loc {
+    border-bottom: none;
+  }
+
+  .grp {
+    margin-left: 9.5rem;
+    line-height: 1.8;
+  }
+
+  /* tablet styles */
+
+  .tablet {
+    margin: 0 0rem 0 auto;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .tablet > * {
+    margin: 0 1rem 0 0;
+    font-size: 1.2rem;
+  }
+
+  @media only screen and (min-width: 1366px) {
+    .container {
+      margin: 5rem 10rem 0 10rem;
+    }
+  }
+
+  @media only screen and (min-width: 1440px) {
+    .container {
+      margin: 5rem 10rem 0 10rem;
+    }
+  }
 }
