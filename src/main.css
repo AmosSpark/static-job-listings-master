@@ -156,6 +156,11 @@ body {
   font-size: 2.3rem;
 }
 
+.profile__title:hover {
+  color: var(--pri-col);
+  cursor: pointer;
+}
+
 .grp {
   line-height: 2.2;
 }
@@ -194,6 +199,12 @@ body {
   font-weight: var(--font-stronger);
   font-size: 2rem;
   color: var(--pri-col);
+}
+
+.tablet > *:hover {
+  background-color: var(--pri-col);
+  color: var(--cont-bg);
+  cursor: pointer;
 }
 
 .account > div:nth-child(3) > p:nth-child(4) {
