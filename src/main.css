@@ -76,16 +76,13 @@ body {
   row-gap: 5rem;
 }
 
-.photosnap,
-.manage,
-.account,
-.myhome,
-.loopstudios,
-.faceit,
-.shortly,
-.insure,
-.eyecam,
-.theair {
+.filterBar {
+  height: 5vh;
+  background-color: var(--cont-bg);
+  margin-bottom: 0.5rem;
+}
+
+.jobs {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -95,8 +92,7 @@ body {
   border-radius: 0.5rem;
 }
 
-.photosnap,
-.manage {
+.jobs--border {
   border-left: 0.5rem solid var(--pri-col);
 }
 
@@ -275,16 +271,7 @@ body {
     row-gap: 2rem;
   }
 
-  .photosnap,
-  .manage,
-  .account,
-  .myhome,
-  .loopstudios,
-  .faceit,
-  .shortly,
-  .insure,
-  .eyecam,
-  .theair {
+  .jobs {
     padding: 2.5rem 2.5rem 2.5rem 3rem;
     flex-direction: row;
   }
