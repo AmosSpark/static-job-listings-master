@@ -1,30 +1,42 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".container"),
+  filterList = [];
 
 // WRAP FETCH IN A PROMISE
 
-let promise = new Promise((resolve, reject) => {
+const fetchData = () => {
   const pass = {
     method: "GET",
     headers: {
       "content-type": "application/json",
     },
   };
-
   // FETCH DATA
+  return new Promise((resolve, reject) => {
+    fetch("data.json", pass)
+      .then((response) => response.json())
+      .then((data) => resolve(data))
+      .catch((error) => reject(error));
+  });
+};
 
-  fetch("data.json", pass)
-    .then((response) => response.json())
-    .then((data) => resolve(data))
-    .catch((error) => reject(error));
-});
+// CHECK FILTER
+const checkFilter = (compareList) => {
+  return filterList.every((el) => compareList.indexOf(el) >= 0);
+};
 
-promise
+// PROMISE SETTLED RESULT - EITHER FULFILLED OR REJECTED
+
+fetchData()
   .then((data) => {
     data.forEach((d) => {
       /*
-        // Set new & featured job value
+        // Set company name
       */
-      const newJob =
+      const profileName = d.company,
+        /*
+          // Set new & featured job value
+      */
+        newJob =
           d.new === true
             ? `<span class="category__new category__new--round">New!</span>`
             : "",
@@ -33,12 +45,25 @@ promise
             ? `<span class="category__featured category__featured--round">
         Featured
       </span>`
-            : "";
-      /*
+            : "",
+        /*
+          // Set tablets
+      */
+        filter = [d.role, d.level, ...(d.languages || []), ...(d.tools || [])];
+      let tablet = "";
+
+      filterList.length === 0 || checkFilter(filter)
+        ? filter.forEach((filt) => {
+            tablet += `<p>${filt}</p>`;
+          })
+        : "";
+
+      /* 
         // Append jobs to container
       */
+
       container.innerHTML += `
-      <div class="photosnap">
+      <div class="jobs">
       <!-- Item Start -->
       <div class="dp">
         <figure>
@@ -50,6 +75,7 @@ promise
         <div class="grp">
           <div class="profile__category">
             <p class="profile__name">
+              ${profileName}
               ${newJob}
               ${featuredJob}
             </p>
@@ -72,19 +98,17 @@ promise
       </div>
 
       <div class="tablet">
-        <!-- Role -->
-        <p class="tablet__role" data-role="frontend">
-          ${d.role}
-        </p>
-        <!-- Level -->
-        <p class="tablet__level" data-level="senior">${d.level}</p>
-        <!-- Languages -->
-        <p class="tablet__language" data-languages="html">HTML</p>
-        <p class="tablet__language" data-languages="css">CSS</p>
-        <p class="tablet__language" data-languages="javascript">JavaScript</p>
+        ${tablet}
       </div>
       `;
     });
+    /*
+      // Add border style to first & second elements of the container
+    */
+    container.firstElementChild.classList.add("jobs--border");
+    container.firstElementChild.nextElementSibling.classList.add(
+      "jobs--border"
+    );
     /*
       // Apeend footer to container
     */
