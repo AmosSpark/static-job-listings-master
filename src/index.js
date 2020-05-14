@@ -1,5 +1,7 @@
-const container = document.querySelector(".container"),
-  filterList = [];
+// SELECT VARIABLES
+const bodyOfPage = document.querySelector("body"), // body
+  container = document.querySelector(".container"), // render space
+  filterBar = document.createElement("div"); // filter-bar / container
 
 // WRAP FETCH IN A PROMISE
 
@@ -10,18 +12,13 @@ const fetchData = () => {
       "content-type": "application/json",
     },
   };
-  // FETCH DATA
+  // Fetch Data
   return new Promise((resolve, reject) => {
     fetch("data.json", pass)
       .then((response) => response.json())
       .then((data) => resolve(data))
       .catch((error) => reject(error));
   });
-};
-
-// CHECK FILTER
-const checkFilter = (compareList) => {
-  return filterList.every((el) => compareList.indexOf(el) >= 0);
 };
 
 // PROMISE SETTLED RESULT - EITHER FULFILLED OR REJECTED
@@ -49,14 +46,20 @@ fetchData()
         /*
           // Set tablets
       */
-        filter = [d.role, d.level, ...(d.languages || []), ...(d.tools || [])];
+        tabletData = [
+          d.role,
+          d.level,
+          ...(d.languages || []),
+          ...(d.tools || []),
+        ]; // get tablet data
+      const convertTabletDataToHTML = tabletData.map(
+        // convert tablet data in array to HTML
+        (tablet) => `<p>${tablet}</p>`
+      );
       let tablet = "";
-
-      filterList.length === 0 || checkFilter(filter)
-        ? filter.forEach((filt) => {
-            tablet += `<p>${filt}</p>`;
-          })
-        : "";
+      convertTabletDataToHTML.forEach((convertedData) => {
+        tablet += convertedData; // append converted tablet data to tablet variable
+      });
 
       /* 
         // Append jobs to container
@@ -102,24 +105,56 @@ fetchData()
       </div>
       `;
     });
+  })
+  .then(() => {
     /*
-      // Add border style to first & second elements of the container
+      // Insert filterbar before container
     */
+    filterBar.innerHTML = `<a href="#" class="clearFilter">Clear</a>`;
+    filterBar.style.display = "none";
+    filterBar.className = "filterBar";
+    bodyOfPage.insertBefore(filterBar, container);
+    console.log(filterBar);
+  })
+  .then(() => {
+    /*
+    // Add border style to first & second elements of the container
+  */
     container.firstElementChild.classList.add("jobs--border");
     container.firstElementChild.nextElementSibling.classList.add(
       "jobs--border"
     );
+  })
+  .then(() => {
     /*
       // Apeend footer to container
     */
     container.innerHTML += `
-    </div>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="https://devcareer.io/amosspark">Spark</a>.
-    </div>
-    `;
+   </div>
+   <div class="attribution">
+     Challenge by
+     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+       >Frontend Mentor</a
+     >. Coded by <a href="https://devcareer.io/amosspark">Spark</a>.
+   </div>
+   `;
+  })
+  .then(() => {
+    // To add a filter, the user needs to click on the tablets on the right-side of the listing on desktop or the bottom on mobile.
+    //set array object
+    const filterLIst = [];
+    // set click event for tablet
+    const tabletPanel = document.querySelectorAll(".tablet");
+    tabletPanel.forEach((tablet) => {
+      tablet.addEventListener("click", (e) => {
+        // push clicked tab to filter list array
+        filterLIst.push(e.target.textContent);
+        console.log(filterLIst);
+        // display filter list on filter tab
+        filterBar.style.display = "flex";
+        // For each filter added, only listings containing all selected filters should be returned.
+      });
+    });
+    // display filter list on filter tab
   })
   .catch((error) => error);
