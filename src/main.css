@@ -77,9 +77,16 @@ body {
 }
 
 .filterBar {
+  display: flex;
+  align-items: center;
   height: 5vh;
   background-color: var(--cont-bg);
-  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+.clearFilter {
+  margin-left: auto;
+  margin-right: 1.5rem;
 }
 
 .jobs {
@@ -267,8 +274,13 @@ body {
 @media only screen and (min-width: 1200px) {
   /* LAYOUT */
   .container {
-    margin: 5rem 5rem 0 5rem;
+    margin: 2.5rem 5rem 0 5rem;
     row-gap: 2rem;
+  }
+
+  .filterBar {
+    margin: 5rem 5rem 0 5rem;
+    /* row-gap: 2rem; */
   }
 
   .jobs {
@@ -343,13 +355,12 @@ body {
 
   @media only screen and (min-width: 1366px) {
     .container {
-      margin: 5rem 10rem 0 10rem;
+      margin: 2.5rem 10rem 0 10rem;
     }
-  }
 
-  @media only screen and (min-width: 1440px) {
-    .container {
+    .filterBar {
       margin: 5rem 10rem 0 10rem;
+      /* row-gap: 2rem; */
     }
   }
 }
