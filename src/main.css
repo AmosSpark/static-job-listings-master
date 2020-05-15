@@ -82,11 +82,35 @@ body {
   height: 5vh;
   background-color: var(--cont-bg);
   margin-top: 3rem;
+  padding: 2.5rem 3rem;
+  border-radius: 0.5rem;
+}
+
+.filterBar > p {
+  background-color: var(--neu-fil);
+  font-size: 1rem;
+  color: var(--pri-col);
+  padding: 0.5rem;
+  font-weight: var(--font-stronger);
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.cancel {
+  background-color: var(--pri-col);
+  font-size: 1.2rem;
+  padding: 0.5rem 0.6rem;
+  color: var(--cont-bg);
+  font-weight: var(--font-stronger);
+  border-radius: 0 0.3rem 0.3rem 0;
+  margin-right: 1rem;
 }
 
 .clearFilter {
+  font-size: 1rem;
+  color: var(--pri-col);
+  font-weight: var(--font-stronger);
   margin-left: auto;
-  margin-right: 1.5rem;
+  text-decoration: none;
 }
 
 .jobs {
@@ -279,8 +303,7 @@ body {
   }
 
   .filterBar {
-    margin: 5rem 5rem 0 5rem;
-    /* row-gap: 2rem; */
+    margin: 2.5rem 5rem 0 5rem;
   }
 
   .jobs {
@@ -359,8 +382,7 @@ body {
     }
 
     .filterBar {
-      margin: 5rem 10rem 0 10rem;
-      /* row-gap: 2rem; */
+      margin: 2.5rem 10rem 0 10rem;
     }
   }
 }
