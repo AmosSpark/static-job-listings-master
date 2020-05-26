@@ -1,7 +1,9 @@
 // SELECT GLOBAL VARIABLES
 const bodyOfPage = document.querySelector("body"), // body
-  container = document.querySelector(".container"); // render space
-filterBar = document.createElement("div"); // filter-bar / container
+  container = document.querySelector(".container"), // render space
+  filterBar = document.createElement("div"); // filter-bar / container
+let filterList = [], // filter list memory
+  formatedFilterList;
 
 // WRAP FETCH IN A PROMISE
 
@@ -50,7 +52,7 @@ fetchData()
         ];
       // 2- convert tablet data in array to HTML
       const convertTabletDataToHTML = tabletData.map(
-        (tablet) => `<p>${tablet}</p>`
+        (tablet) => `<p class="tablet-child">${tablet}</p>`
       );
       // 3 - append converted tablet data to tablet variable
       let tablet = "";
@@ -140,26 +142,34 @@ const insertFilterBarToContainer = () => {
 };
 
 const renderFilterBar = () => {
-  //set array object
-  const filterList = [];
   // set click event for tablet
   const tabletPanel = document.querySelectorAll(".tablet");
   tabletPanel.forEach((tablet) => {
     tablet.addEventListener("click", (e) => {
-      // push clicked tab to filter list array
-      filterList.push(
-        `<p>${e.target.textContent}</p>` + `<span class="cancel">X</span>`
-      );
-      // filterList.push(
-      //   `<p>${e.target.textContent}<span class="cancel">X</span></p>`
-      // );
-      console.log(filterList);
-      // display filter list on filter tab
-      const formatedFilterList = filterList.join("");
-      filterBar.style.display = "flex";
-      filterBar.innerHTML = formatedFilterList;
-      filterBar.innerHTML += `<a href="#" class="clearFilter">Clear</a>`;
+      if (e.target.className === "tablet-child") {
+        filterList.push(
+          `<p>${e.target.textContent}<span class="cancel">X</span></p>`
+        );
+        // display filter list on filter tab
+        formatedFilterList = filterList.join("");
+        filterBar.style.display = "flex";
+        filterBar.innerHTML = formatedFilterList;
+        filterBar.innerHTML += `<a href="#" class="clearFilter">Clear</a>`;
+      } else {
+        return false;
+      }
     });
+  });
+  removeFilterItem();
+};
+
+const removeFilterItem = () => {
+  filterBar.addEventListener("click", (e) => {
+    if (e.target.className === "cancel") {
+      console.log(filterList.indexOf(e.target.parentElement));
+    } else {
+      return false;
+    }
   });
 };
 
