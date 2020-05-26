@@ -16,7 +16,7 @@ const fetchData = () => {
   };
   // Fetch Data
   return new Promise((resolve, reject) => {
-    fetch("data.json", pass)
+    fetch("./src/data.json", pass)
       .then((response) => response.json())
       .then((data) => resolve(data))
       .catch((error) => reject(error));
@@ -67,7 +67,7 @@ fetchData()
       <!-- Item Start -->
       <div class="dp">
         <figure>
-          <img src ="${d.logo}">
+          <img src ="./src/${d.logo}">
         </figure>
       </div>
       <div class="profile">
