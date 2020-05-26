@@ -1,6 +1,2 @@
 .DS_Store
 static-job-listings-master.zip
-node_modules/
-scss/pages/
-scss/themes/
-scss/vendors/
