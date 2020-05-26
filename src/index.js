@@ -1,5 +1,9 @@
-const container = document.querySelector(".container"),
-  filterList = [];
+// SELECT GLOBAL VARIABLES
+const bodyOfPage = document.querySelector("body"), // body
+  container = document.querySelector(".container"), // render space
+  filterBar = document.createElement("div"); // filter-bar / container
+let filterList = [], // filter list memory
+  formatedFilterList;
 
 // WRAP FETCH IN A PROMISE
 
@@ -10,7 +14,7 @@ const fetchData = () => {
       "content-type": "application/json",
     },
   };
-  // FETCH DATA
+  // Fetch Data
   return new Promise((resolve, reject) => {
     fetch("data.json", pass)
       .then((response) => response.json())
@@ -19,23 +23,15 @@ const fetchData = () => {
   });
 };
 
-// CHECK FILTER
-const checkFilter = (compareList) => {
-  return filterList.every((el) => compareList.indexOf(el) >= 0);
-};
-
-// PROMISE SETTLED RESULT - EITHER FULFILLED OR REJECTED
+// PROMISE SETTLED RESULT
 
 fetchData()
   .then((data) => {
     data.forEach((d) => {
-      /*
-        // Set company name
-      */
+      // SET CONTAINER VARIABLES
+      // Set company name
       const profileName = d.company,
-        /*
-          // Set new & featured job value
-      */
+        // Set new & featured job value using tenary operator
         newJob =
           d.new === true
             ? `<span class="category__new category__new--round">New!</span>`
@@ -46,21 +42,25 @@ fetchData()
         Featured
       </span>`
             : "",
-        /*
-          // Set tablets
-      */
-        filter = [d.role, d.level, ...(d.languages || []), ...(d.tools || [])];
+        // Set tablets using array spread method
+        // 1- get tablet data
+        tabletData = [
+          d.role,
+          d.level,
+          ...(d.languages || []),
+          ...(d.tools || []),
+        ];
+      // 2- convert tablet data in array to HTML
+      const convertTabletDataToHTML = tabletData.map(
+        (tablet) => `<p class="tablet-child">${tablet}</p>`
+      );
+      // 3 - append converted tablet data to tablet variable
       let tablet = "";
+      convertTabletDataToHTML.forEach((convertedData) => {
+        tablet += convertedData;
+      });
 
-      filterList.length === 0 || checkFilter(filter)
-        ? filter.forEach((filt) => {
-            tablet += `<p>${filt}</p>`;
-          })
-        : "";
-
-      /* 
-        // Append jobs to container
-      */
+      // APPEND JOBS TO CONTAINER
 
       container.innerHTML += `
       <div class="jobs">
@@ -102,24 +102,78 @@ fetchData()
       </div>
       `;
     });
-    /*
-      // Add border style to first & second elements of the container
-    */
-    container.firstElementChild.classList.add("jobs--border");
-    container.firstElementChild.nextElementSibling.classList.add(
-      "jobs--border"
-    );
-    /*
-      // Apeend footer to container
-    */
-    container.innerHTML += `
-    </div>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="https://devcareer.io/amosspark">Spark</a>.
-    </div>
-    `;
+  })
+  .then(() => {
+    // Apeend footer to container
+    appendFooter();
+  })
+  .then(() => {
+    // Insert filterbar before container
+    insertFilterBarToContainer();
+  })
+  .then(() => {
+    // Render filterbar
+    renderFilterBar();
+  })
+  .then(() => {
+    // Add border style to first & second elements of the container
+    addBorderStyle();
   })
   .catch((error) => error);
+
+// RESOLVED FUNCTIONS
+
+const appendFooter = () => {
+  container.innerHTML += `
+     </div>
+     <div class="attribution">
+       Challenge by
+       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+         >Frontend Mentor</a
+       >. Coded by <a href="https://devcareer.io/amosspark">Spark</a>.
+     </div>
+     `;
+};
+
+const insertFilterBarToContainer = () => {
+  filterBar.style.display = "none";
+  filterBar.className = "filterBar";
+  bodyOfPage.insertBefore(filterBar, container);
+};
+
+const renderFilterBar = () => {
+  // set click event for tablet
+  const tabletPanel = document.querySelectorAll(".tablet");
+  tabletPanel.forEach((tablet) => {
+    tablet.addEventListener("click", (e) => {
+      if (e.target.className === "tablet-child") {
+        filterList.push(
+          `<p>${e.target.textContent}<span class="cancel">X</span></p>`
+        );
+        // display filter list on filter tab
+        formatedFilterList = filterList.join("");
+        filterBar.style.display = "flex";
+        filterBar.innerHTML = formatedFilterList;
+        filterBar.innerHTML += `<a href="#" class="clearFilter">Clear</a>`;
+      } else {
+        return false;
+      }
+    });
+  });
+  removeFilterItem();
+};
+
+const removeFilterItem = () => {
+  filterBar.addEventListener("click", (e) => {
+    if (e.target.className === "cancel") {
+      console.log(filterList.indexOf(e.target.parentElement));
+    } else {
+      return false;
+    }
+  });
+};
+
+const addBorderStyle = () => {
+  container.firstElementChild.classList.add("jobs--border");
+  container.firstElementChild.nextElementSibling.classList.add("jobs--border");
+};

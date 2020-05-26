@@ -77,9 +77,40 @@ body {
 }
 
 .filterBar {
+  display: flex;
+  align-items: center;
   height: 5vh;
   background-color: var(--cont-bg);
-  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+  padding: 2.5rem 3rem;
+  border-radius: 0.5rem;
+}
+
+.filterBar > p {
+  background-color: var(--neu-fil);
+  font-size: 1rem;
+  color: var(--pri-col);
+  padding: 0.5rem;
+  font-weight: var(--font-stronger);
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.cancel {
+  background-color: var(--pri-col);
+  font-size: 1.2rem;
+  padding: 0.5rem 0.6rem;
+  color: var(--cont-bg);
+  font-weight: var(--font-stronger);
+  border-radius: 0 0.3rem 0.3rem 0;
+  margin-right: 1rem;
+}
+
+.clearFilter {
+  font-size: 1rem;
+  color: var(--pri-col);
+  font-weight: var(--font-stronger);
+  margin-left: auto;
+  text-decoration: none;
 }
 
 .jobs {
@@ -267,8 +298,12 @@ body {
 @media only screen and (min-width: 1200px) {
   /* LAYOUT */
   .container {
-    margin: 5rem 5rem 0 5rem;
+    margin: 2.5rem 5rem 0 5rem;
     row-gap: 2rem;
+  }
+
+  .filterBar {
+    margin: 2.5rem 5rem 0 5rem;
   }
 
   .jobs {
@@ -343,13 +378,11 @@ body {
 
   @media only screen and (min-width: 1366px) {
     .container {
-      margin: 5rem 10rem 0 10rem;
+      margin: 2.5rem 10rem 0 10rem;
     }
-  }
 
-  @media only screen and (min-width: 1440px) {
-    .container {
-      margin: 5rem 10rem 0 10rem;
+    .filterBar {
+      margin: 2.5rem 10rem 0 10rem;
     }
   }
 }
